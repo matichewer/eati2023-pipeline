@@ -4,9 +4,6 @@ on:
     branches:
       - main
 
-env:
-  FILE_PATH: 'build/index.html'
-
 jobs:    
   lint:    
     name: 'Linting'
@@ -86,3 +83,5 @@ jobs:
 
       - name: 'Execute tree'
         run: tree
+
+      - run: cat deploy.log
