@@ -68,7 +68,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Mi-artefacto
-          path: ${{ env.FILE_PATH }}
+          path: build/
        
   deploy:
     name: 'Deploy'  
@@ -79,7 +79,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Mi-artefacto
-          path: ${{ env.PATH_FILE }}
+          path: .
 
       - name: 'Execute tree'
         run: tree
