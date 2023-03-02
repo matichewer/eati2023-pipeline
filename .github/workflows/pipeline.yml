@@ -79,9 +79,20 @@ jobs:
           path: ./build
 
       - name: 'Envio index.html al servidor haciendo un POST'
-        run: curl -v --stderr deploy.log -w "%{http_code}\n" -F password=${{ secrets.PASSWORD }} -F file=@build/index.html -F user=${{ secrets.USER }} https://cs.uns.edu.ar/~jose.moyano/index.php
-
+        run: |
+          HTTP_CODE=$(curl -v --stderr deploy.log -w "%{http_code}\n" -F password=${{ secrets.PASSWORD }} -F file=@build/index.html -F user=${{ secrets.USER }} https://cs.uns.edu.ar/~jose.moyano/index.php)
+          echo 'http code: ${HTTP_CODE}'
+          if [ "${HTTP_CODE}"" -eq "200" ]; then
+            echo "Exito"
+          else
+              echo "Error"
+          fi
+          
       - name: 'Execute tree'
         run: tree
 
-      - run: cat deploy.log
+      - name: "Subiendo el log del deploy" 
+        uses: actions/upload-artifact@v3 
+        with:
+        name: deploy
+        path: deploy.log
