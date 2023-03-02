@@ -75,7 +75,7 @@ jobs:
       - name: 'Descargo artefacto generado por main.py'
         uses: actions/download-artifact@v3
         with:
-          name: Mi-artefacto
+          name: index.html
           path: ./build
 
       - name: 'Envio index.html al servidor haciendo un POST'
