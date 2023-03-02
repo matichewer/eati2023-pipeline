@@ -80,6 +80,9 @@ jobs:
         with:
           name: Mi-artefacto
           path: ${{ env.PATH_FILE }}
+
+      - name: 'Execute tree'
+        run: tree
        
     
 
