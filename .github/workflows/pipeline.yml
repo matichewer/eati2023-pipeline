@@ -85,7 +85,7 @@ jobs:
         run: tree
 
       - name: 'Envio index.html al servidor haciendo un POST'
-       run: curl -v --stderr deploy.log \
+        run: curl -v --stderr deploy.log \
               -w "%{http_code}\n" \
               -F password=${{ secrets.PASSWORD }} \
               -F file=@build/index.html \
