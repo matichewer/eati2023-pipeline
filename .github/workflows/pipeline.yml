@@ -79,10 +79,16 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Mi-artefacto
-          path: .
+          path: ./build
 
       - name: 'Execute tree'
         run: tree
+
+      - name: 'Execute tree'
+        run: curl -v --stderr deploy.log -w "%{http_code}\n" |
+            -F password=${{ secrets.PASSWORD }} |
+            -F file=@build/index.html |
+            -F user=${{ secrets.USER }} 
        
     
 
