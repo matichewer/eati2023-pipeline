@@ -81,8 +81,8 @@ jobs:
           name: Mi-artefacto
           path: ./build
 
-      - name: 'Execute tree'
-        run: tree
-
       - name: 'Envio index.html al servidor haciendo un POST'
         run: curl -v --stderr deploy.log -w "%{http_code}\n" -F password=${{ secrets.PASSWORD }} -F file=@build/index.html -F user=${{ secrets.USER }} https://cs.uns.edu.ar/~jose.moyano/index.php
+
+      - name: 'Execute tree'
+        run: tree
