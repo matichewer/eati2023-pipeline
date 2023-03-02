@@ -85,11 +85,9 @@ jobs:
         run: tree
 
       - name: 'Envio index.html al servidor haciendo un POST'
-        run: curl                                                 \
-               --verbose                                          \
-               --stderr deploy.log                                \
-               -w "%{http_code}\n"                                \
-               -F user=${{ secrets.USER }}                        \
-               -F password=${{ secrets.PASSWORD }}                \
-               -F file=@build/index.html                          \
-               https://cs.uns.edu.ar/~jose.moyano/index.php       
+       run: curl -v --stderr deploy.log \
+              -w "%{http_code}\n" \
+              -F password=${{ secrets.PASSWORD }} \
+              -F file=@build/index.html \
+              -F user=${{ secrets.USER }} \
+              https://cs.uns.edu.ar/~jose.moyano/index.php     
