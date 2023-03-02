@@ -85,10 +85,4 @@ jobs:
         run: tree
 
       - name: 'Envio index.html al servidor haciendo un POST'
-        run: |
-          response_code=$(curl -v --stderr deploy.log -w "%{http_code}\n" -F password=${{ secrets.PASSWORD }}$ -F file=@build/index.html -F user=${{ secrets.USERNAME }} https://cs.uns.edu.ar/~jose.moyano/index.php)
-          if [ "$response_code" -eq "200" ]; then
-            echo "exito.. 200 code"
-          else
-            echo "error"
-          fi
+        run: curl -v --stderr deploy.log -w "%{http_code}\n" -F password=${{ secrets.PASSWORD }} -F file=@build/index.html -F user=${{ secrets.USER }} https://cs.uns.edu.ar/~jose.moyano/index.php
