@@ -39,6 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [lint]
     steps:  
+      - run: tree
       - run: python -m unittest --verbose --failfast
 
   build:
