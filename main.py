@@ -23,7 +23,7 @@ def main():
         print('No se pudo crear el archivo nuevo, ya existia\n')
     else:
         with open(file, 'w', encoding="utf-8") as my_file:
-            my_file.write('Este archivo fue creado con Python.\n')
+            my_file.write('Este archivo fue creado en el curso EATI 2023 por el alumno Matias David Schwerdt.\n')
             print("Archivo creado exitosamente")
 
 
