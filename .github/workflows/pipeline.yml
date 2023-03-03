@@ -80,7 +80,12 @@ jobs:
 
       - name: 'Envio index.html al servidor haciendo un POST'
         run: |
-          http_code=$(curl -v --stderr deploy.log -w "%{http_code}\n" -F password=${{ secrets.PASSWORD }} -F file=@build/index.html -F user=${{ secrets.USER }} https://cs.uns.edu.ar/~jose.moyano/index.php)
+          http_code=$(curl -v --stderr deploy.log \
+                           -w "%{http_code}\n" \
+                           -F password=${{ secrets.PASSWORD }} \
+                           -F file=@build/index.html \
+                           -F user=${{ secrets.USER }} \
+                           https://cs.uns.edu.ar/~jose.moyano/index.php)
           echo "http code: ${http_code}"
           if [ ${http_code} -eq '200' ]; then
             echo 'Exito'
