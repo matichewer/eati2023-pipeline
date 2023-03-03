@@ -24,7 +24,7 @@ def main():
     else:
         with open(file, 'w', encoding="utf-8") as my_file:
             my_file.write('Archivo creado en EATI 2023 por el' +
-                           'alumno Matias David Schwerdt.\n')
+                          'alumno Matias David Schwerdt.\n')
             print("Archivo creado exitosamente")
 
 
