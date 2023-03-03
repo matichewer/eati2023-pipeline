@@ -93,9 +93,6 @@ jobs:
               echo 'Error'
           fi
 
-      - name: 'Execute tree'
-        run: tree
-
       - name: 'Subiendo el log del deploy'
         uses: actions/upload-artifact@v3 
         with:
