@@ -4,7 +4,7 @@
 
 ### EATI 2023: Pipeline
 
-In this repository we have created a pipeline with the following stages: Lintening, Unit Test, Build and Deploy.
+In this repository we have created a pipeline with the following stages: Linting, Unit Test, Build and Deploy.
 
 ___
 
